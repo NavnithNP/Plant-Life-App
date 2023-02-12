@@ -4,7 +4,7 @@ This repository contains source code for mobile based Plant Life Application whi
 **Note:**
 Add your Open Weather Map API Key to the Temperature Screen in Plant_Life.aia.
 
-**Plant_Life_Arduino** - Arduino Source code to capture micro temperature and send data to connected Plant Life app through bluetooth.Have your own Arduino set up to measure and send temperature data to App.
+**Plant_Life_Arduino.ino** - Arduino Source code to capture micro temperature and send data to connected Plant Life app through bluetooth.Have your own Arduino set up to measure and send temperature data to App.
 
 
 
