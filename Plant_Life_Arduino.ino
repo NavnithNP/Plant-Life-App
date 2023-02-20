@@ -11,23 +11,19 @@ const  char * UUID_mycharacteristic =  "a0c513b9-46c5-49f4-9eae-0407c5012e7b" ;
 BLEService myService ( UUID_myservice ) ;
 
 // BLE Characteristics
-// Syntax: BLE<DATATYPE>Characteristic <NAME>(<UUID>, <PROPERTIES>, <DATA LENGTH>)
-//BLEFloatCharacteristic myCharacteristic ( UUID_mycharacteristic , BLERead | BLENotify ) ;
 BLEFloatCharacteristic ble_temperature ( UUID_mycharacteristic , BLERead | BLENotify ) ;
 
 #define Type DHT22
 int sensePin=2;
 DHT HT(sensePin,Type);
 float tempF;
-//String t;
 
 
 void setup()
 {
   // Initalizing Sensor
     HT.begin();
-  //Serial.begin(9600);
-  //while (!Serial);
+ 
      
     if (!BLE.begin())
     {
@@ -50,7 +46,7 @@ void setup()
 
     // Start advertising
     BLE.advertise ( ) ;
-    //Serial.println("Bluetooth device is now active, waiting for connections...");
+    Serial.println("Bluetooth device is now active, waiting for connections...");
 }
 
 void loop()
@@ -60,7 +56,7 @@ void loop()
     central.connected ( ) ;
 
     float tempF = HT.readTemperature(true);
-    ////t = String(tempF) + " F";
+  
 
     // Writing sensor values to the characteristic
     ble_temperature.writeValue(tempF);
@@ -69,8 +65,6 @@ void loop()
     Serial.println("Reading Sensors");
     Serial.println(tempF);
     Serial.println("\n");
-      // Serial.print("Disconnected from central: ");
-   // Serial.println(central.address());
 }
 
 
