@@ -1,7 +1,6 @@
 #include <ArduinoBLE.h>           // Bluetooth Library
 #include <DHT.h>
 #include <DHT_U.h>
-//#include <TimeLib.h>
 
 // Initalizing global variables for sensor data to pass onto BLE
 const  char * UUID_myservice          =  "a0c513b8-46c5-49f4-9eae-0407c5012e7b" ; 
@@ -27,7 +26,7 @@ void setup()
      
     if (!BLE.begin())
     {
-        //Serial.println("BLE failed to Initiate");
+        Serial.println("BLE failed to Initiate");
         delay(500);
         while (1);
     }
